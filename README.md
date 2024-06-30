@@ -14,10 +14,8 @@ Follow the steps below to install the app in your corresponding environment
 
 ```
 # Clone git repo in your path
-git clone https://github.com/MangelRyujin/testGoDjango.git
-
-# Change to dev branch 
-git checkout dev          
+git clone https://github.com/MangelRyujin/djangoShopi.git
+      
 ```
 
 ## Development environment 
