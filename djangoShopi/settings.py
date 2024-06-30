@@ -101,7 +101,7 @@ ALTERNATIVE_DBS = {
 }
 
 DATABASES = {
-    "default": ALTERNATIVE_DBS[config("USE_DB", default="postgres")],
+    "default": ALTERNATIVE_DBS[config("USE_DB", default="sqlite3")],
 }
     
 
@@ -175,8 +175,6 @@ SOCIALACCOUNT_PROVIDERS = {
 
 # Configure email backend 
 EMAIL_BACKEND = config("EMAIL_BACKEND",default="django.core.mail.backends.console.EmailBackend")
-DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL",default="")
-SERVER_EMAIL = config("SERVER_EMAIL",default="")
 EMAIL_HOST = config("EMAIL_HOST",default="")
 EMAIL_USE_TLS = config("EMAIL_USE_TLS", default=True, cast=bool)
 EMAIL_PORT = config("EMAIL_USER",default=587)
