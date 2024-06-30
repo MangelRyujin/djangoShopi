@@ -76,6 +76,9 @@ DEBUG = <True>                              # default False
 TIME_ZONE = <your time zone>                # default UTC
 LANGUAGE_CODE= <your lenguage>              # default en-us
 
+# your google api auth
+GOOGLE_CLIENT_ID = <your client id>         # default 123
+GOOGLE_SECRET= <your secret>                # default 456
 ```
 
 ## Run migrations
