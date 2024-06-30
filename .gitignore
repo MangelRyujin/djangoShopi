@@ -1,0 +1,8 @@
+media
+.vscode
+__pycache__
+.env
+env
+tailwind*
+*sqlite3
+client_secret_1041430694159-9qnbc02mgnvhd6ssl14ck26viui9sv4i.apps.googleusercontent.com.json
