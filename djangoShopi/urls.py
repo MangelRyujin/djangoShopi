@@ -19,9 +19,11 @@ from django.urls import path,include,re_path
 from django.conf import settings
 from django.views.static import serve
 from django.conf.urls.static import static
+from apps.general.views import home_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',home_view,name="home_view"),
     path('accounts/', include('allauth.urls')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

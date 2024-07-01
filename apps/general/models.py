@@ -31,7 +31,7 @@ class SocialMedia(models.Model):
         verbose_name_plural = _("SocialMedias")
 
     def __str__(self):
-        return self.id
+        return f'{self.id}'
     
 class Brand(models.Model):
     brand_name = models.CharField(_("Brand name"),max_length=255)
@@ -66,7 +66,7 @@ class AboutUs(models.Model):
         verbose_name_plural = _("AboutUs")
 
     def __str__(self):
-        return self.principal_presentation
+        return self.principal_title
     
 class FAQ(models.Model):
     title = models.CharField(_("Title"),max_length=100)
