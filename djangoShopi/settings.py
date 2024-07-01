@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.accounts',
     # allauth authentications
     'allauth',
     'allauth.account',
@@ -45,6 +46,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # ... include the providers you want to enable:
     'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.github',
+    
 ]
 
 MIDDLEWARE = [
@@ -170,8 +174,19 @@ SOCIALACCOUNT_PROVIDERS = {
             'secret': config("GOOGLE_SECRET",default="456"),
             'key': ''
         }
+    },
+    'github': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': config("GITHUB_CLIENT_ID",default="123"),
+            'secret': config("GITHUB_SECRET",default="456"),
+            'key': ''
+        }
     }
 }
+
 
 # Configure email backend 
 EMAIL_BACKEND = config("EMAIL_BACKEND",default="django.core.mail.backends.console.EmailBackend")
@@ -187,7 +202,15 @@ LOGIN_REDIRECT_URL='/'
 # Redirect user by logout
 ACCOUNT_LOGOUT_REDIRECT_URL='/'
 
+ACCOUNT_AUTHENTICATION_METHOD= "email"
+ACCOUNT_EMAIL_REQUIRED=True
 
+
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS=1
+ACCOUNT_EMAIL_REQUIRED=True
+ACCOUNT_EMAIL_VERIFICATION="mandatory"
+ACCOUNT_MAX_EMAIL_ADDRESSES=1
+ACCOUNT_LOGOUT_ON_GET = True
 # Static media file config
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
